@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <div class="nav-bar1">
+    
+        <div class="logo">SANA</div>
+
+        <div class="nav">
+            <ul class="form-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">about me</a></li>
+                <li><a href="#">service</a></li>
+                <li><a href="sign.html">sign </a></li>
+            </ul>
+
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+    </div>
+    
+
+    <div class="container">
+        <h2>Sign In</h2>
+        <form id="signinForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address" required>
+
+            <button type="submit">Sign In</button>
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+
+    if (name === "" || email === "" || address === "") {
+        alert("All fields are required!");
+    } else {
+        alert(`Welcome, ${name}! Sign-in successful.`);
+    }
+});
+
+
+
+
+
+const formList = document.querySelector(".form-list");
+const ham = document.querySelector(".hamburger");
+
+ham.addEventListener("click", ()=>{
+    formList.classList.toggle("active");
+})
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".nav-bar1");
+
+    window.addEventListener("scroll", function () {
+        console.log("Scroll position:", window.scrollY); // Debugging to check scroll value
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled"); // Add transparency effect
+        } else {
+            navbar.classList.remove("scrolled"); // Remove transparency
+        }
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
